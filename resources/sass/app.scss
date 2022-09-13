@@ -1,0 +1,126 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+// Set your colors
+$primary: #8c67ef;
+$primary-light: findLightColor($primary);
+$primary-dark: findDarkColor($primary);
+$primary-invert: findColorInvert($primary);
+$twitter: #4099FF;
+$twitter-invert: findColorInvert($twitter);
+
+// Lists and maps
+$custom-colors: null !default;
+$custom-shades: null !default;
+
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: mergeColorMaps(("white": ($white,
+                $black,
+            ),
+            "black": ($black,
+                $white,
+            ),
+            "light": ($light,
+                $light-invert,
+            ),
+            "dark": ($dark,
+                $dark-invert,
+            ),
+            "primary": ($primary,
+                $primary-invert,
+                $primary-light,
+                $primary-dark,
+            ),
+            "link": ($link,
+                $link-invert,
+                $link-light,
+                $link-dark,
+            ),
+            "info": ($info,
+                $info-invert,
+                $info-light,
+                $info-dark,
+            ),
+            "success": ($success,
+                $success-invert,
+                $success-light,
+                $success-dark,
+            ),
+            "warning": ($warning,
+                $warning-invert,
+                $warning-light,
+                $warning-dark,
+            ),
+            "danger": ($danger,
+                $danger-invert,
+                $danger-light,
+                $danger-dark,
+            ),
+        ),
+        $custom-colors);
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+.menu-list a:hover {
+    background-color: $primary-light  !important;
+}
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+.navbar-item img {
+    max-height: 2.75rem;
+}
+
+.main {
+    @extend .is-flex;
+    height: calc(95vh - (#{$navbar-height}+#{$box-padding}));
+}
+
+.content {
+    @extend .is-flex-grow-5;
+    overflow-y: scroll;
+}
+
+.content-container {
+    overflow-y: scroll;
+    width: 100%;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.download-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    @include touch{
+        bottom: 20px;
+        right: 30px;
+    }
+}
+
+.downloadMenuBtn {
+    @extend .ml-auto;
+}
+
+.navbar-brand {
+    width: 100%;
+}
